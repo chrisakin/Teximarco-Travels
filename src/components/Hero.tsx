@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, MapPin, Calendar, Users, Plane, Bot } from 'lucide-react';
+import { Plane, Building, Package, Bot } from 'lucide-react';
+import FlightSearchForm from './common/FlightSearchForm';
+import HotelSearchForm from './common/HotelSearchForm';
+import PackageSearchForm from './common/PackageSearchForm';
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('flights');
@@ -8,12 +11,13 @@ const Hero = () => {
 
   const tabs = [
     { id: 'flights', label: 'Flights', icon: Plane, route: '/flights' },
-    { id: 'hotels', label: 'Hotels', icon: MapPin, route: '/hotels' },
-    { id: 'packages', label: 'Packages', icon: Users, route: '/packages' },
+    { id: 'hotels', label: 'Hotels', icon: Building, route: '/hotels' },
+    { id: 'packages', label: 'Packages', icon: Package, route: '/packages' },
     { id: 'ai-planner', label: 'AI Trip Planner', icon: Bot, route: '/trip-planner' },
   ];
 
-  const handleSearch = () => {
+  const handleSearch = (searchData?: any) => {
+    console.log('Search data:', searchData);
     const activeTabData = tabs.find(tab => tab.id === activeTab);
     if (activeTabData) {
       navigate(activeTabData.route);
@@ -61,54 +65,9 @@ const Hero = () => {
           </div>
 
           {/* Search Forms */}
-          {activeTab === 'flights' && (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">From</label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Lagos (LOS)"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-                  />
-                </div>
-              </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">To</label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="London (LHR)"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-                  />
-                </div>
-              </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Departure</label>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                  <input
-                    type="date"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent"
-                  />
-                </div>
-              </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Passengers</label>
-                <div className="relative">
-                  <Users className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                  <select className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent appearance-none">
-                    <option>1 Adult</option>
-                    <option>2 Adults</option>
-                    <option>3 Adults</option>
-                    <option>4+ Adults</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          )}
+          {activeTab === 'flights' && <FlightSearchForm onSearch={handleSearch} />}
+          {activeTab === 'hotels' && <HotelSearchForm onSearch={handleSearch} />}
+          {activeTab === 'packages' && <PackageSearchForm onSearch={handleSearch} />}
 
           {activeTab === 'ai-planner' && (
             <div className="text-center py-8">
@@ -124,17 +83,6 @@ const Hero = () => {
               />
             </div>
           )}
-
-          {/* Search Button */}
-          <div className="mt-6 text-center">
-            <button 
-              onClick={handleSearch}
-              className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-flex items-center"
-            >
-              <Search className="w-5 h-5 mr-2" />
-              {activeTab === 'ai-planner' ? 'Plan My Trip' : 'Search'}
-            </button>
-          </div>
         </div>
       </div>
     </div>
