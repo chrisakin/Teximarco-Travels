@@ -25,10 +25,10 @@ const Header = () => {
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-4">
-              <button className="hover:text-sky-900 transition-colors">Sign In</button>
-              <button className="bg-sky-600 text-white px-4 py-1 rounded-full hover:bg-sky-700 transition-colors">
+              <Link to="/login" className="hover:text-sky-900 transition-colors">Sign In</Link>
+              <Link to="/signup" className="bg-sky-600 text-white px-4 py-1 rounded-full hover:bg-sky-700 transition-colors">
                 Register
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -153,10 +153,10 @@ const Header = () => {
               </Link>
               <a href="#" className="text-gray-700 hover:text-sky-600 font-medium transition-colors">Support</a>
               <div className="pt-4 border-t border-sky-100">
-                <button className="w-full text-left text-gray-700 hover:text-sky-600 mb-2">Sign In</button>
-                <button className="w-full bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition-colors">
+                <Link to="/login" className="block w-full text-left text-gray-700 hover:text-sky-600 mb-2">Sign In</Link>
+                <Link to="/signup" className="block w-full bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition-colors text-center">
                   Register
-                </button>
+                </Link>
               </div>
             </nav>
           </div>

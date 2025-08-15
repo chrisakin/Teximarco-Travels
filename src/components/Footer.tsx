@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Facebook, 
   Twitter, 
@@ -13,11 +14,11 @@ import {
 const Footer = () => {
   const footerLinks = {
     'Travel Services': [
-      'Flight Booking',
-      'Hotel Reservations',
+      { name: 'Flight Booking', path: '/flights' },
+      { name: 'Hotel Reservations', path: '/hotels' },
       'Car Rentals',
       'Travel Insurance',
-      'Visa Services',
+      { name: 'Visa Services', path: '/visa' },
       'Airport Transfers'
     ],
     'Destinations': [
@@ -29,16 +30,16 @@ const Footer = () => {
       'Middle East'
     ],
     'Support': [
-      'Help Center',
-      'Contact Us',
+      { name: 'Help Center', path: '/help' },
+      { name: 'Contact Us', path: '/contact' },
       'Travel Guides',
       'FAQs',
       'Booking Management',
       'Travel Alerts'
     ],
     'Company': [
-      'About Us',
-      'Careers',
+      { name: 'About Us', path: '/about' },
+      { name: 'Careers', path: '/careers' },
       'Press',
       'Partnerships',
       'Affiliate Program',
@@ -89,12 +90,21 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a 
-                      href="#" 
-                      className="text-gray-300 hover:text-sky-400 transition-colors"
-                    >
-                      {link}
-                    </a>
+                    {typeof link === 'object' ? (
+                      <Link 
+                        to={link.path}
+                        className="text-gray-300 hover:text-sky-400 transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a 
+                        href="#" 
+                        className="text-gray-300 hover:text-sky-400 transition-colors"
+                      >
+                        {link}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -123,8 +133,8 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-400">
               <span>© 2025 Texitravels. All rights reserved.</span>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-sky-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-sky-400 transition-colors">Terms of Service</a>
+                <Link to="/privacy" className="hover:text-sky-400 transition-colors">Privacy Policy</Link>
+                <Link to="/terms" className="hover:text-sky-400 transition-colors">Terms of Service</Link>
                 <a href="#" className="hover:text-sky-400 transition-colors">Cookie Policy</a>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plane, Filter, SortAsc, Clock, Wifi, Utensils } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
-import SearchForm from '../components/common/SearchForm';
+import FlightSearchForm from '../components/common/FlightSearchForm';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 
@@ -68,7 +68,9 @@ const FlightsPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Search Form */}
         <div className="mb-12">
-          <SearchForm type="flights" onSearch={handleSearch} />
+          <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-6xl mx-auto">
+            <FlightSearchForm onSearch={handleSearch} />
+          </div>
         </div>
 
         {/* Filters and Sort */}

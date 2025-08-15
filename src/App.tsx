@@ -7,6 +7,14 @@ import HotelsPage from './pages/HotelsPage';
 import VisaPage from './pages/VisaPage';
 import ProofOfFundsPage from './pages/ProofOfFundsPage';
 import TripPlannerPage from './pages/TripPlannerPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import AboutPage from './pages/AboutPage';
+import CareersPage from './pages/CareersPage';
+import HelpCenterPage from './pages/HelpCenterPage';
+import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
 import Footer from './components/Footer';
 
 function App() {
@@ -21,6 +29,14 @@ function App() {
           <Route path="/visa" element={<VisaPage />} />
           <Route path="/proof-of-funds" element={<ProofOfFundsPage />} />
           <Route path="/trip-planner" element={<TripPlannerPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/help" element={<HelpCenterPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Routes>
         <Footer />
       </div>

@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-white/10 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 pt-8">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Your Journey Begins
             <span className="block text-sky-100">With Texitravels</span>
@@ -42,7 +42,7 @@ const Hero = () => {
         </div>
 
         {/* Search Widget */}
-        <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-5xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-6xl mx-auto">
           {/* Tabs */}
           <div className="flex flex-wrap gap-2 mb-6 border-b border-gray-200">
             {tabs.map((tab) => {
