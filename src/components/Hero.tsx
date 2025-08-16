@@ -42,47 +42,64 @@ const Hero = () => {
         </div>
 
         {/* Search Widget */}
-        <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-6xl mx-auto">
           {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 border-b border-gray-200">
+          <div className="flex flex-wrap border-b border-gray-200 bg-gray-50">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center px-4 py-3 rounded-t-lg font-medium transition-all ${
+                  className={`flex items-center px-6 py-4 font-medium transition-all relative ${
                     activeTab === tab.id
-                      ? 'bg-sky-50 text-sky-600 border-b-2 border-sky-600'
-                      : 'text-gray-600 hover:text-sky-600 hover:bg-sky-50'
+                      ? 'bg-white text-sky-600 shadow-sm border-b-2 border-sky-600'
+                      : 'text-gray-600 hover:text-sky-600 hover:bg-white/50'
                   }`}
                 >
-                  <Icon className="w-5 h-5 mr-2" />
-                  {tab.label}
+                  <div className={`flex items-center space-x-3 ${
+                    activeTab === tab.id ? 'transform scale-105' : ''
+                  }`}>
+                    <div className={`p-2 rounded-lg ${
+                      activeTab === tab.id ? 'bg-sky-100' : 'bg-gray-100'
+                    }`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="font-semibold">{tab.label}</span>
+                  </div>
                 </button>
               );
             })}
           </div>
 
           {/* Search Forms */}
-          {activeTab === 'flights' && <FlightSearchForm onSearch={handleSearch} />}
-          {activeTab === 'hotels' && <HotelSearchForm onSearch={handleSearch} />}
-          {activeTab === 'packages' && <PackageSearchForm onSearch={handleSearch} />}
+          <div className="p-8">
+            {activeTab === 'flights' && <FlightSearchForm onSearch={handleSearch} />}
+            {activeTab === 'hotels' && <HotelSearchForm onSearch={handleSearch} />}
+            {activeTab === 'packages' && <PackageSearchForm onSearch={handleSearch} />}
 
-          {activeTab === 'ai-planner' && (
-            <div className="text-center py-8">
-              <Bot className="w-16 h-16 text-sky-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">AI-Powered Trip Planning</h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Tell us your preferences, budget, and travel dates. Our AI will create a personalized 
-                itinerary with flights, hotels, activities, and local recommendations.
-              </p>
-              <textarea
-                placeholder="Describe your dream trip... (e.g., 'I want a 7-day romantic getaway to Paris with a budget of $3000, including museums and fine dining')"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent h-32 resize-none"
-              />
-            </div>
-          )}
+            {activeTab === 'ai-planner' && (
+              <div className="text-center py-8">
+                <div className="bg-gradient-to-br from-sky-100 to-purple-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Bot className="w-10 h-10 text-sky-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">AI-Powered Trip Planning</h3>
+                <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                  Tell us your preferences, budget, and travel dates. Our AI will create a personalized 
+                  itinerary with flights, hotels, activities, and local recommendations.
+                </p>
+                <div className="max-w-3xl mx-auto">
+                  <textarea
+                    placeholder="Describe your dream trip... (e.g., 'I want a 7-day romantic getaway to Paris with a budget of $3000, including museums and fine dining')"
+                    className="w-full p-6 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-sky-500 h-32 resize-none text-lg"
+                  />
+                  <button className="mt-6 bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
+                    Plan My Trip with AI
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

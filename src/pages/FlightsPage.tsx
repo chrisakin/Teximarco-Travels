@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Plane, Filter, SortAsc, Clock, Wifi, Utensils } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import PageHeader from '../components/common/PageHeader';
 import FlightSearchForm from '../components/common/FlightSearchForm';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 
 const FlightsPage = () => {
+  const navigate = useNavigate();
   const [flights] = useState([
     {
       id: 1,
@@ -53,7 +55,7 @@ const FlightsPage = () => {
 
   const handleSearch = (searchData: any) => {
     console.log('Flight search:', searchData);
-    // Implement search logic here
+    navigate('/flight-results', { state: { searchData } });
   };
 
   return (
@@ -144,8 +146,12 @@ const FlightsPage = () => {
                 {/* Price and Book */}
                 <div className="text-center lg:text-right">
                   <div className="text-2xl font-bold text-sky-600 mb-2">{flight.price}</div>
-                  <Button size="lg" className="w-full lg:w-auto">
-                    Select Flight
+                  <Button 
+                    size="lg" 
+                    className="w-full lg:w-auto"
+                    onClick={() => navigate('/flight-results')}
+                  >
+                    Search Flights
                   </Button>
                 </div>
               </div>

@@ -31,7 +31,7 @@ const PackageSearchForm: React.FC<PackageSearchFormProps> = ({ onSearch, classNa
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`bg-white rounded-xl shadow-lg p-6 ${className}`}>
+    <form onSubmit={handleSubmit} className={className}>
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Destination</label>

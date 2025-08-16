@@ -70,9 +70,9 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`bg-white rounded-xl shadow-lg p-6 ${className}`}>
+    <form onSubmit={handleSubmit} className={className}>
       {/* Trip Type Selector */}
-      <div className="flex flex-wrap gap-2 mb-6 border-b border-gray-200 pb-4">
+      <div className="flex flex-wrap gap-3 mb-8">
         {[
           { id: 'roundTrip', label: 'Round Trip' },
           { id: 'oneWay', label: 'One Way' },
@@ -82,10 +82,10 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
             key={type.id}
             type="button"
             onClick={() => handleTripTypeChange(type.id as any)}
-            className={`px-4 py-2 rounded-lg font-medium transition-all ${
+            className={`px-6 py-3 rounded-xl font-semibold transition-all ${
               formData.tripType === type.id
-                ? 'bg-sky-600 text-white'
-                : 'text-gray-600 hover:text-sky-600 hover:bg-sky-50'
+                ? 'bg-sky-600 text-white shadow-lg transform scale-105'
+                : 'bg-gray-100 text-gray-600 hover:text-sky-600 hover:bg-sky-50 hover:shadow-md'
             }`}
           >
             {type.label}
