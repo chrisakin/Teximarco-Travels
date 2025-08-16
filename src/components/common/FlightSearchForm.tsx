@@ -96,36 +96,44 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
       {/* Single Trip Form */}
       {formData.tripType !== 'multiCity' && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <AirportSearch
+          <div className="relative z-20">
+            <AirportSearch
             label="From"
             value={formData.from}
             onChange={(airport) => handleAirportChange('from', airport)}
             placeholder="Departure city"
-          />
+            />
+          </div>
           
-          <AirportSearch
+          <div className="relative z-20">
+            <AirportSearch
             label="To"
             value={formData.to}
             onChange={(airport) => handleAirportChange('to', airport)}
             placeholder="Destination city"
-          />
+            />
+          </div>
 
-          <DatePicker
+          <div className="relative z-10">
+            <DatePicker
             label="Departure"
             selected={formData.departureDate}
             onChange={(date) => setFormData(prev => ({ ...prev, departureDate: date }))}
             minDate={new Date()}
             placeholder="Select departure date"
-          />
+            />
+          </div>
 
           {formData.tripType === 'roundTrip' && (
-            <DatePicker
+            <div className="relative z-10">
+              <DatePicker
               label="Return"
               selected={formData.returnDate}
               onChange={(date) => setFormData(prev => ({ ...prev, returnDate: date }))}
               minDate={formData.departureDate || new Date()}
               placeholder="Select return date"
-            />
+              />
+            </div>
           )}
 
           {formData.tripType === 'oneWay' && (
@@ -176,27 +184,33 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
         <div className="space-y-4 mb-6">
           {formData.multiCityTrips?.map((trip, index) => (
             <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
-              <AirportSearch
+              <div className="relative z-20">
+                <AirportSearch
                 label={`From ${index + 1}`}
                 value={trip.from}
                 onChange={(airport) => handleMultiCityAirportChange(index, 'from', airport)}
                 placeholder="Departure city"
-              />
+                />
+              </div>
               
-              <AirportSearch
+              <div className="relative z-20">
+                <AirportSearch
                 label={`To ${index + 1}`}
                 value={trip.to}
                 onChange={(airport) => handleMultiCityAirportChange(index, 'to', airport)}
                 placeholder="Destination city"
-              />
+                />
+              </div>
 
-              <DatePicker
+              <div className="relative z-10">
+                <DatePicker
                 label={`Date ${index + 1}`}
                 selected={trip.date}
                 onChange={(date) => handleMultiCityChange(index, 'date', date)}
                 minDate={new Date()}
                 placeholder="Select date"
-              />
+                />
+              </div>
 
               <div className="flex items-end">
                 {formData.multiCityTrips && formData.multiCityTrips.length > 2 && (

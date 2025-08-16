@@ -18,9 +18,17 @@ const Hero = () => {
 
   const handleSearch = (searchData?: any) => {
     console.log('Search data:', searchData);
-    const activeTabData = tabs.find(tab => tab.id === activeTab);
-    if (activeTabData) {
-      navigate(activeTabData.route);
+    if (activeTab === 'flights') {
+      navigate('/flight-results', { state: { searchData } });
+    } else if (activeTab === 'hotels') {
+      navigate('/hotel-results', { state: { searchData } });
+    } else if (activeTab === 'packages') {
+      navigate('/package-results', { state: { searchData } });
+    } else {
+      const activeTabData = tabs.find(tab => tab.id === activeTab);
+      if (activeTabData) {
+        navigate(activeTabData.route);
+      }
     }
   };
 
@@ -30,19 +38,19 @@ const Hero = () => {
       <div className="absolute inset-0 bg-white/10 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-12 pt-8">
+        <div className="text-center mb-16 pt-12 lg:pt-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Your Journey Begins
             <span className="block text-sky-100">With Texitravels</span>
           </h1>
-          <p className="text-xl text-sky-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-sky-100 max-w-4xl mx-auto leading-relaxed px-4">
             Discover the world with our comprehensive travel platform. Book flights, hotels, 
             get visa assistance, and let AI plan your perfect trip.
           </p>
         </div>
 
         {/* Search Widget */}
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-7xl mx-auto relative z-10">
           {/* Tabs */}
           <div className="flex flex-wrap border-b border-gray-200 bg-gray-50">
             {tabs.map((tab) => {
@@ -73,7 +81,7 @@ const Hero = () => {
           </div>
 
           {/* Search Forms */}
-          <div className="p-8">
+          <div className="p-8 lg:p-12 pb-12 lg:pb-16">
             {activeTab === 'flights' && <FlightSearchForm onSearch={handleSearch} />}
             {activeTab === 'hotels' && <HotelSearchForm onSearch={handleSearch} />}
             {activeTab === 'packages' && <PackageSearchForm onSearch={handleSearch} />}

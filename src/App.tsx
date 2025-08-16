@@ -17,6 +17,8 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
 import FlightSearchResultsPage from './pages/FlightSearchResultsPage';
 import FlightDetailsPage from './pages/FlightDetailsPage';
+import HotelSearchResultsPage from './pages/HotelSearchResultsPage';
+import PackageSearchResultsPage from './pages/PackageSearchResultsPage';
 import PassengerDetailsPage from './pages/PassengerDetailsPage';
 import SeatSelectionPage from './pages/SeatSelectionPage';
 import BookingReviewPage from './pages/BookingReviewPage';
@@ -45,6 +47,8 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/flight-results" element={<FlightSearchResultsPage />} />
+          <Route path="/hotel-results" element={<HotelSearchResultsPage />} />
+          <Route path="/package-results" element={<PackageSearchResultsPage />} />
           <Route path="/flight-details" element={<FlightDetailsPage />} />
           <Route path="/passenger-details" element={<PassengerDetailsPage />} />
           <Route path="/seat-selection" element={<SeatSelectionPage />} />

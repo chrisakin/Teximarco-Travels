@@ -116,12 +116,12 @@ const AirportSearch: React.FC<AirportSearchProps> = ({
       </div>
 
       {isOpen && results.length > 0 && (
-        <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+        <div className="absolute z-[9999] w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto min-w-max">
           {results.map((airport, index) => (
             <button
               key={airport.iata}
               onClick={() => handleAirportSelect(airport)}
-              className={`w-full px-4 py-3 text-left hover:bg-sky-50 focus:bg-sky-50 focus:outline-none border-b border-gray-100 last:border-b-0 ${
+              className={`w-full px-4 py-3 text-left hover:bg-sky-50 focus:bg-sky-50 focus:outline-none border-b border-gray-100 last:border-b-0 whitespace-nowrap ${
                 index === selectedIndex ? 'bg-sky-50' : ''
               }`}
             >
@@ -129,13 +129,13 @@ const AirportSearch: React.FC<AirportSearchProps> = ({
                 <div className="bg-sky-100 p-2 rounded-lg">
                   <Plane className="w-4 h-4 text-sky-600" />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-2">
                     <span className="font-semibold text-gray-900">{airport.iata}</span>
                     <span className="text-gray-600">•</span>
                     <span className="text-gray-900">{airport.city}</span>
                   </div>
-                  <div className="text-sm text-gray-600 truncate">{airport.name}</div>
+                  <div className="text-sm text-gray-600">{airport.name}</div>
                   <div className="text-xs text-gray-500">{airport.country}</div>
                 </div>
               </div>

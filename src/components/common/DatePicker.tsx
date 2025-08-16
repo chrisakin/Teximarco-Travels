@@ -113,7 +113,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
         }
         
         .datepicker-popper {
-          z-index: 9999;
+          z-index: 9999 !important;
         }
       `}</style>
     </div>
