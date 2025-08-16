@@ -3,7 +3,6 @@ import { Users, Award, Globe, Heart, Target, Eye } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
 import Card from '../components/common/Card';
 import Services from '../components/Services';
-import Destinations from '../components/Destinations';
 import Features from '../components/Features';
 import Testimonials from '../components/Testimonials';
 
@@ -208,7 +207,6 @@ const AboutPage = () => {
         {/* Additional Sections */}
         <div className="mt-20">
           <Services />
-          <Destinations />
           <Features />
           <Testimonials />
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Star, ArrowRight } from 'lucide-react';
 
 const Destinations = () => {
@@ -104,10 +105,13 @@ const Destinations = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+          <Link 
+            to="/destinations" 
+            className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center"
+          >
             View All Destinations
             <ArrowRight className="w-5 h-5 ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Minus, Users, Plane } from 'lucide-react';
+import { Search, Plus, Minus, Users } from 'lucide-react';
 import { SearchFormData, MultiCityTrip, Airport } from '../../types';
 import AirportSearch from './AirportSearch';
 import DatePicker from './DatePicker';
@@ -36,7 +36,7 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
     }));
   };
 
-  const handleMultiCityChange = (index: number, field: keyof MultiCityTrip, value: any) => {
+  const handleMultiCityChange = (index: number, field: keyof MultiCityTrip, value: unknown) => {
     setFormData(prev => ({
       ...prev,
       multiCityTrips: prev.multiCityTrips?.map((trip, i) =>

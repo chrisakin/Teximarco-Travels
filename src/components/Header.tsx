@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, Globe, Phone } from 'lucide-react';
+import { Menu, X, Globe, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,6 +82,36 @@ const Header = () => {
             >
               Trip Planner
             </Link>
+            <div className="relative group">
+              <button className="font-medium text-gray-700 hover:text-sky-600 transition-colors flex items-center">
+                Destinations
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-2">
+                  <Link to="/destinations" className="block px-4 py-2 text-gray-700 hover:bg-sky-50 hover:text-sky-600">
+                    All Destinations
+                  </Link>
+                  <Link to="/destinations/africa" className="block px-4 py-2 text-gray-700 hover:bg-sky-50 hover:text-sky-600">
+                    Africa
+                  </Link>
+                  <Link to="/destinations/europe" className="block px-4 py-2 text-gray-700 hover:bg-sky-50 hover:text-sky-600">
+                    Europe
+                  </Link>
+                  <Link to="/destinations/asia" className="block px-4 py-2 text-gray-700 hover:bg-sky-50 hover:text-sky-600">
+                    Asia
+                  </Link>
+                  <Link to="/destinations/americas" className="block px-4 py-2 text-gray-700 hover:bg-sky-50 hover:text-sky-600">
+                    Americas
+                  </Link>
+                  <Link to="/destinations/middle-east" className="block px-4 py-2 text-gray-700 hover:bg-sky-50 hover:text-sky-600">
+                    Middle East
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link 
               to="/proof-of-funds" 
               className={`font-medium transition-colors ${
@@ -151,6 +181,53 @@ const Header = () => {
               >
                 Proof of Funds
               </Link>
+              <div className="border-t border-sky-100 pt-4">
+                <div className="text-sm font-medium text-gray-500 mb-2">Destinations</div>
+                <div className="space-y-2 ml-4">
+                  <Link 
+                    to="/destinations" 
+                    className="block text-gray-700 hover:text-sky-600 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    All Destinations
+                  </Link>
+                  <Link 
+                    to="/destinations/africa" 
+                    className="block text-gray-700 hover:text-sky-600 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Africa
+                  </Link>
+                  <Link 
+                    to="/destinations/europe" 
+                    className="block text-gray-700 hover:text-sky-600 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Europe
+                  </Link>
+                  <Link 
+                    to="/destinations/asia" 
+                    className="block text-gray-700 hover:text-sky-600 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Asia
+                  </Link>
+                  <Link 
+                    to="/destinations/americas" 
+                    className="block text-gray-700 hover:text-sky-600 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Americas
+                  </Link>
+                  <Link 
+                    to="/destinations/middle-east" 
+                    className="block text-gray-700 hover:text-sky-600 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Middle East
+                  </Link>
+                </div>
+              </div>
               <a href="#" className="text-gray-700 hover:text-sky-600 font-medium transition-colors">Support</a>
               <div className="pt-4 border-t border-sky-100">
                 <Link to="/login" className="block w-full text-left text-gray-700 hover:text-sky-600 mb-2">Sign In</Link>

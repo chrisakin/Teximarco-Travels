@@ -1,6 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import FlightsPage from './pages/FlightsPage';
 import HotelsPage from './pages/HotelsPage';
@@ -24,12 +24,19 @@ import SeatSelectionPage from './pages/SeatSelectionPage';
 import BookingReviewPage from './pages/BookingReviewPage';
 import PaymentPage from './pages/PaymentPage';
 import BookingConfirmationPage from './pages/BookingConfirmationPage';
+import DestinationsPage from './pages/DestinationsPage';
+import AfricaPage from './pages/destinations/AfricaPage';
+import EuropePage from './pages/destinations/EuropePage';
+import AsiaPage from './pages/destinations/AsiaPage';
+import AmericasPage from './pages/destinations/AmericasPage';
+import MiddleEastPage from './pages/destinations/MiddleEastPage';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -55,6 +62,12 @@ function App() {
           <Route path="/booking-review" element={<BookingReviewPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/booking-confirmation" element={<BookingConfirmationPage />} />
+          <Route path="/destinations" element={<DestinationsPage />} />
+          <Route path="/destinations/africa" element={<AfricaPage />} />
+          <Route path="/destinations/europe" element={<EuropePage />} />
+          <Route path="/destinations/asia" element={<AsiaPage />} />
+          <Route path="/destinations/americas" element={<AmericasPage />} />
+          <Route path="/destinations/middle-east" element={<MiddleEastPage />} />
         </Routes>
         <Footer />
       </div>

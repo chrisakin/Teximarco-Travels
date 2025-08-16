@@ -22,12 +22,12 @@ const Footer = () => {
       'Airport Transfers'
     ],
     'Destinations': [
-      'Popular Destinations',
-      'Africa',
-      'Europe',
-      'Asia',
-      'Americas',
-      'Middle East'
+      { name: 'Popular Destinations', path: '/destinations' },
+      { name: 'Africa', path: '/destinations/africa' },
+      { name: 'Europe', path: '/destinations/europe' },
+      { name: 'Asia', path: '/destinations/asia' },
+      { name: 'Americas', path: '/destinations/americas' },
+      { name: 'Middle East', path: '/destinations/middle-east' }
     ],
     'Support': [
       { name: 'Help Center', path: '/help' },
