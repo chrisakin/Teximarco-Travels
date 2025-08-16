@@ -15,7 +15,7 @@ import HelpCenterPage from './pages/HelpCenterPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsPage from './pages/TermsPage';
-// import FlightSearchResultsPage from './pages/FlightSearchResultsPage';
+import FlightSearchResultsPage from './pages/FlightSearchResultsPage';
 import FlightDetailsPage from './pages/FlightDetailsPage';
 import PassengerDetailsPage from './pages/PassengerDetailsPage';
 import SeatSelectionPage from './pages/SeatSelectionPage';
@@ -44,7 +44,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsPage />} />
-          {/* <Route path="/flight-results" element={<FlightSearchResultsPage />} /> */}
+          <Route path="/flight-results" element={<FlightSearchResultsPage />} />
           <Route path="/flight-details" element={<FlightDetailsPage />} />
           <Route path="/passenger-details" element={<PassengerDetailsPage />} />
           <Route path="/seat-selection" element={<SeatSelectionPage />} />
