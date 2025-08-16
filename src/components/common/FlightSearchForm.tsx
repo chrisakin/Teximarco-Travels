@@ -95,7 +95,8 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
 
       {/* Single Trip Form */}
       {formData.tripType !== 'multiCity' && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <div className="relative z-20">
             <AirportSearch
             label="From"
@@ -135,32 +136,11 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
               />
             </div>
           )}
-
-          {formData.tripType === 'oneWay' && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Passengers</label>
-              <div className="relative">
-                <Users className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                <select
-                  value={formData.passengers}
-                  onChange={(e) => setFormData(prev => ({ ...prev, passengers: e.target.value }))}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent appearance-none"
-                >
-                  <option value="1">1 Adult</option>
-                  <option value="2">2 Adults</option>
-                  <option value="3">3 Adults</option>
-                  <option value="4">4+ Adults</option>
-                </select>
-              </div>
-            </div>
-          )}
         </div>
-      )}
 
-      {/* Round Trip Passengers */}
-      {formData.tripType === 'roundTrip' && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <div>
+        {/* Passengers for both one-way and round-trip */}
+        <div className="flex justify-center mb-6">
+          <div className="w-full md:w-64">
             <label className="block text-sm font-medium text-gray-700 mb-2">Passengers</label>
             <div className="relative">
               <Users className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -177,6 +157,7 @@ const FlightSearchForm: React.FC<FlightSearchFormProps> = ({ onSearch, className
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* Multi City Form */}
