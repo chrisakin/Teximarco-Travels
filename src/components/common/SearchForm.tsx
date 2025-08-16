@@ -4,7 +4,7 @@ import Button from './Button';
 
 interface SearchFormProps {
   type: 'flights' | 'hotels' | 'packages';
-  onSearch?: (data: any) => void;
+  onSearch?: (data: unknown) => void;
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ type, onSearch }) => {

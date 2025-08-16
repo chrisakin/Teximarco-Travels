@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import  { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Plane, 
   Filter, 
-  SortAsc, 
-  Clock, 
   Wifi, 
   Utensils, 
   Star,
   MapPin,
   Calendar,
   Users,
-  X,
   ChevronDown,
   ChevronUp,
-  Loader2,
   AlertCircle
 } from 'lucide-react';
 import PageHeader from '../components/common/PageHeader';
@@ -43,9 +39,7 @@ interface Flight {
 
 const FlightSearchResultsPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const searchData = location.state?.searchData;
-
+ 
   const [flights, setFlights] = useState<Flight[]>([]);
   const [filteredFlights, setFilteredFlights] = useState<Flight[]>([]);
   const [loading, setLoading] = useState(true);
@@ -232,7 +226,7 @@ const FlightSearchResultsPage = () => {
     navigate('/flight-details', { state: { flight } });
   };
 
-  const handleNewSearch = (searchData: any) => {
+  const handleNewSearch = () => {
     setShowSearchForm(false);
     setLoading(true);
     // Simulate new search
@@ -580,7 +574,7 @@ const FlightSearchResultsPage = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .slider::-webkit-slider-thumb {
           appearance: none;
           height: 20px;
